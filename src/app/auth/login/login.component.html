@@ -1,0 +1,74 @@
+<div class="container">
+  <ngx-loading [show]="submitted" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  <form class="form-horizontal" (ngSubmit)="onSubmit()" #form="ngForm" role="form">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2>Login app!</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group has-danger">
+          <label class="sr-only">username</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+            <input type="text"
+                   ngModel
+                   name="username"
+                   class="form-control" id="username"
+                   placeholder="Email" required autofocus #username="ngModel">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+            <span class="help-block" *ngIf="!username.valid">
+                <i class="fa fa-close"></i> Please input your email address
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="password">Password</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon"><i class="fa fa-key"></i></div>
+            <input type="password"
+                   ngModel name="password"
+                   class="form-control" id="password"
+                   autocomplete="on"
+                   placeholder="Password" required #password="ngModel" >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+            <span class="help-block" *ngIf="!password.valid && password.touched">
+              Please input a password
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="alert alert-danger" role="alert" *ngIf="inputError">
+          <strong>{{httpMessage.bold}}</strong> {{httpMessage.text}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary" data-style="expand-left" [disabled]="!form.valid && form.touched">
+          Login <i class="fa fa-sign-in"></i></button>
+      </div>
+    </div>
+  </form>
+</div>
+

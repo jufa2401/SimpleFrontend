@@ -1,0 +1,37 @@
+
+<div class="card-header">
+  <div class="mx-auto" style="width: 400px; margin-top: -5px; text-align: center; margin-bottom: -40px">
+    <div  style="margin-bottom: 40px">
+      <h1>Frontend</h1>
+      <p>Developed for DTU Afgangsproject</p>
+    </div>
+    <div style="margin-top: -20px">
+      <p *ngIf="setName()">Welcome back, {{name}}</p>
+    </div>
+  </div>
+  <div style="margin-top: 30px; padding-bottom: 0;">
+    <div class="float-right" *ngIf="auth.loggedIn" >
+      <button id="logout" class="btn btn-danger" (click)="logout()">Logout <fa name ="fas fa-sign-out"></fa></button>
+    </div>
+    <div *ngIf="auth.loggedIn || location.path() === '/highscores'">
+      <button class="btn btn-primary" (click)="goHome()"><fa name="fas fa-home"></fa> Home</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #logoutModal="bs-modal"
+     class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-auto-name" class="modal-title pull-left">Your session has expired</h4>
+      </div>
+      <div class="modal-body">
+        <p>Your session has expired, and you have to logout</p>
+        <div class="text-center">
+          <button class="btn btn-default" (click)="onHidden()" >Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

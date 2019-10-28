@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    baseUrl : 'http://api.took.dk/api',
+    production: false,
+    hmr       : false
 };
 
 /*
