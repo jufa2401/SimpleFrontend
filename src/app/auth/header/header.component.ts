@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AuthService} from '../auth.service';
 import {Location} from '@angular/common';
@@ -13,7 +12,7 @@ import {timer} from 'rxjs/internal/observable/timer';
 })
 
 export class HeaderComponent implements OnInit, OnDestroy {
-  constructor(public auth: AuthService, private router: Router, private toastr: ToastrService, public location: Location) {}
+  constructor(public auth: AuthService, private router: Router, public location: Location) {}
   name: string;
   isModalShown: boolean;
   tokenSubscription: Subscription;
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout() {
     this.auth.logoutRemoveToken();
     this.auth.loggedIn = false;
-    this.toastr.success('You have succesfully logged out');
+    // this.toastr.success('You have succesfully logged out');
     this.router.navigate(['/login']);
   }
 

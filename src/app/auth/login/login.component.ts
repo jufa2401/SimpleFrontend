@@ -3,7 +3,6 @@ import {NgForm} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
-import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +22,7 @@ export class LoginComponent implements OnInit {
     text: string;
   };
   constructor(private authService: AuthService,
-              private router: Router,
-              private toastr: ToastrService) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.submitted = false;
@@ -53,7 +51,6 @@ export class LoginComponent implements OnInit {
       () => {
         this.authService.loggedIn = true;
         this.router.navigate(['/home']);
-        this.toastr.success('You have succesfully logged in');
         this.submitted = false;
       } ,
       (error: HttpErrorResponse) => {

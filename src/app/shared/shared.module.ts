@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastrModule} from 'ngx-toastr';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -14,10 +13,12 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot({ // ToastrModule added
-    timeOut: 2000
-  })],
+    // ToastrModule.forRoot({
+    //   // ToastrModule added
+    //   timeOut: 2000
+    // })
+  ],
   exports: [NgxLoadingModule, CommonModule],
-  declarations: [LandingpageComponent],
+  declarations: [LandingpageComponent]
 })
 export class SharedModule {}
