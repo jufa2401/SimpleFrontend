@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-kube": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build --configuration=kubernetes"
-
   },
   "private": true,
   "dependencies": {
