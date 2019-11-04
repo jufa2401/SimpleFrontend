@@ -1,5 +1,5 @@
 export const environment = {
-    baseUrl : 'http://localhost:8000/api',
+    baseUrl : 'http://took-backend/api',
     production: true,
     hmr       : false,
 };
